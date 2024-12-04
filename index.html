@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A collection of fall-inspired sweet treats.">
+    <meta name="author" content="Isabella Denning">
+    <meta name="keywords" content="Fall recipes, pumpkin bread, cookies, banana bread, autumn treats">
+    <title>Fall Treats - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body onload="displayDayTime()"> <!-- Requirement: Display current day and time -->
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="bread.html">Bread Recipes</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+        <!-- Requirement: Dropdown navigation for mobile -->
+        <select onchange="window.location.href=this.value;">
+            <option value="index.html">Home</option>
+            <option value="bread.html">Bread Recipes</option>
+            <option value="cookies.html">Cookies</option>
+        </select>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section>
+        <h1>Welcome to Fall-Inspired Treats!</h1>
+        <p>Get cozy with our favorite autumn recipes! From pumpkin bread to cookies, we have everything to satisfy your fall cravings.</p>
+        <!-- Requirement: Image -->
+        <img src="images/fall_treats_home.jpg" alt="Fall treats" width="400">
+    </section>
+
+    <!-- Form Section -->
+    <section>
+        <h2>Share Your Favorite Fall Recipe</h2>
+        <!-- Requirement: Form with multiple fieldsets -->
+        <form id="recipe-form">
+            <!-- Fieldset 1: Personal Details -->
+            <fieldset>
+                <legend>Personal Details</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required pattern="[A-Za-z\s]+" maxlength="50">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <br>
+                <label for="birthdate">Date of Birth:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </fieldset>
+
+            <!-- Fieldset 2: Recipe Details -->
+            <fieldset>
+                <legend>Recipe Details</legend>
+                <label for="recipe-type">Type of Recipe:</label>
+                <select id="recipe-type" name="recipe-type">
+                    <option value="bread">Bread</option>
+                    <option value="cookies">Cookies</option>
+                    <option value="other">Other</option>
+                </select>
+                <br>
+                <!-- Requirement: Range Slider -->
+                <label for="spice-level">Spice Level:</label>
+                <input type="range" id="spice-level" name="spice-level" min="0" max="10">
+                <br>
+                <!-- Requirement: Datalist -->
+                <label for="favorite-ingredient">Favorite Ingredient:</label>
+                <input type="text" id="favorite-ingredient" list="ingredients">
+                <datalist id="ingredients">
+                    <option value="Pumpkin">
+                    <option value="Cinnamon">
+                    <option value="Banana">
+                    <option value="Ginger">
+                </datalist>
+                <br>
+                <!-- Requirement: Radio Buttons -->
+                <label>Meal Type:</label>
+                <input type="radio" name="meal" value="Breakfast"> Breakfast
+                <input type="radio" name="meal" value="Dessert"> Dessert
+                <br>
+                <!-- Requirement: Checkboxes -->
+                <label>Extra Options:</label>
+                <input type="checkbox" name="options" value="Gluten-Free"> Gluten-Free
+                <input type="checkbox" name="options" value="Vegan"> Vegan
+                <br>
+                <!-- Requirement: Textarea -->
+                <label for="comments">Additional Comments:</label>
+                <textarea id="comments" name="comments" rows="4" cols="40" placeholder="Share your thoughts..."></textarea>
+            </fieldset>
+
+            <!-- Requirement: Submit and Reset Buttons -->
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Fall Treats. All rights reserved.</p>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+        // Requirement: Display current day and time
+        function displayDayTime() {
+            const now = new Date();
+            const day = now.toLocaleDateString('en-US', { weekday: 'long' });
+            const time = now.toLocaleTimeString();
+            alert(`Today is ${day}, and the current time is ${time}.`);
+        }
+
+        // Requirement: Math Method Example
+        document.getElementById('spice-level').addEventListener('input', function () {
+            const spiceValue = this.value;
+            console.log(`Current spice level is ${spiceValue}.`);
+        });
+
+        // Requirement: Countdown Function
+        let countdown = 10;
+        setInterval(function () {
+            if (countdown > 0) {
+                console.log(`Countdown: ${countdown}`);
+                countdown--;
+            } else {
+                console.log("Countdown complete!");
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
